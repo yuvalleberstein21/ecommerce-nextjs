@@ -60,14 +60,13 @@ export default function ProductForm({
         }
     }
 
-    const updateImagesOrder = () => {
-        console.log(arguments);
+    const updateImagesOrder = (images) => {
+        setImages(images);
     }
 
     return (
 
         <form onSubmit={saveProduct}>
-
             <label>Product name</label>
             <input
                 type="text"
@@ -76,8 +75,12 @@ export default function ProductForm({
                 onChange={(e) => setTitle(e.target.value)}
             />
             <label>Photos</label>
+
             <div className="mb-2 flex flex-wrap gap-1">
-                <ReactSortable list={images} setList={updateImagesOrder}>
+                <ReactSortable
+                    list={images}
+                    setList={updateImagesOrder}
+                    className="flex flex-wrap gap-1">
                     {!!images?.length && images.map(link => ( // the !! is to change the property to boolean...
                         <div key={link} className="h-24">
                             <img src={link} alt="image" className="rounded-lg" />
