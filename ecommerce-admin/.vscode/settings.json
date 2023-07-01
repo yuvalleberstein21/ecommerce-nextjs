@@ -1,0 +1,4 @@
+{
+  "prettier.enableDebugLogs": false,
+  "git.ignoreLimitWarning": true
+}
